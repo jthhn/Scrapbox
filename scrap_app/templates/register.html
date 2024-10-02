@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            background: url("{%static 'scarp_app/images/background.jpg'%}") no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .signup-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        button {
+            background-color: #0056b3;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+
+        <h2>SignUp</h2>
+        {%if form.errors%}
+        {{form.errors}}
+        {%endif%}
+        <form action="" method="post" class="mt-5 ms-4 ">
+        {%csrf_token%}
+            <div class="input-group mt-4">
+                <span class="input-group-text" id="basic-addon1">
+                </span>
+                <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <br>
+            <div class="input-group mt-4">
+                <span class="input-group-text" id="basic-addon1">
+                </span>
+                <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <br>
+            <div class="input-group mt-4">
+                <span class="input-group-text" id="basic-addon1">
+                </span>
+                <input type="password" name="password1" class="form-control" placeholder="password1" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <br>
+            <div class="input-group mt-4">
+                <span class="input-group-text" id="basic-addon1">
+                </span>
+                <input type="password" name="password2" class="form-control" placeholder="password2" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <br>
+            <button type="submit">Sign Up</button>
+        </form>
+        <br>
+        <div class="text-center">
+          Already have a account! <a class="link" href="{%url 'signin'%}">Login</a>
+        </div>
+    </div>
+</body>
+</html>
+       
